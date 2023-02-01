@@ -50,3 +50,6 @@ class Follow(models.Model):
             UniqueConstraint(fields=['following', 'user'],
                              name='unique_follow')
         ]
+
+    def __str__(self):
+        return '{} follows {}'.format(self.user, self.following)

@@ -7,14 +7,14 @@ router = DefaultRouter()
 router.register('posts', PostViewSet)
 router.register('groups', GroupViewSet)
 router.register(
-    r'^posts/(?P<post_id>\d+)/comments',
+    r'posts/(?P<post_id>\d+)/comments',
     CommentViewSet,
     basename='comment'
 )
 router.register('follow', FollowViewSet)
 
 urlpatterns = [
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-    path('api/v1/', include(router.urls)),
+    path('v1/', include('djoser.urls')),
+    path('v1/', include('djoser.urls.jwt')),
+    path('v1/', include(router.urls)),
 ]
